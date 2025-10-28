@@ -2,10 +2,21 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  outputFileTracingRoot: undefined,
   experimental: {
-    // Enable ISR for Cloudflare Pages
-    isrMemoryCacheSize: 52 * 50, // max 52MB
+    isrMemoryCacheSize: 52 * 50,
   },
+  headers: async () => [
+    {
+      source: "/:path*",
+      headers: [
+        {
+          key: "Cache-Control",
+          value: "public, max-age=60, s-maxage=300",
+        },
+      ],
+    },
+  ],
 };
 
 export default nextConfig;
