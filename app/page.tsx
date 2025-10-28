@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
@@ -8,12 +10,12 @@ export default function Home() {
         </p>
         <nav className="space-y-2">
           <p>
-            <a
+            <Link
               href="/isr-test"
               className="text-blue-600 hover:text-blue-800 underline text-lg"
             >
               ISR Test Page
-            </a>
+            </Link>
           </p>
         </nav>
       </div>

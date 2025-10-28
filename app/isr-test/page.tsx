@@ -1,4 +1,4 @@
-import { revalidatePath } from 'next/cache';
+import Link from 'next/link';
 
 export const revalidate = 60; // ISR - revalidate every 60 seconds
 
@@ -45,12 +45,12 @@ export default async function ISRTestPage() {
         </div>
 
         <div className="mt-6">
-          <a
+          <Link
             href="/"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           >
             Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </main>
