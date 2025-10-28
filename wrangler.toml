@@ -1,0 +1,31 @@
+name = "frontend-test"
+type = "webpack"
+account_id = ""
+workers_dev = true
+route = ""
+zone_id = ""
+build = { command = "npm run build" }
+main = "./.next/server/index.js"
+
+[env.production]
+name = "frontend-test-prod"
+routes = [
+  { pattern = "alegria-frontend-test.pages.dev", zone_id = "" }
+]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "frontend-test-db"
+database_id = ""
+preview_id = ""
+
+[[r2_buckets]]
+binding = "R2"
+bucket_name = "frontend-test-bucket"
+jurisdiction = "eu"
+
+[build.upload]
+rules = [
+  { type = "CompiledContentType", globs = ["**/*.wasm"], fallthrough = true },
+  { type = "Text", globs = ["**/*.js", "**/*.css"], fallthrough = false }
+]
