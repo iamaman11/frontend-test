@@ -1,23 +1,14 @@
 name = "frontend-test"
-type = "next"
+type = "webpack"
 account_id = "6045b0c922c5f02ca8efe49010a2e687"
-compatibility_date = "2025-10-28"
+workers_dev = true
+route = ""
+zone_id = ""
 
 [build]
 command = "npm run build"
 cwd = "."
 
-[[d1_databases]]
-binding = "DB"
-database_name = "frontend-test-db"
-database_id = "df73446a-fff3-408e-b339-c84fc7ead9a0"
-
-[[r2_buckets]]
-binding = "R2"
-bucket_name = "frontend-test-bucket"
-
-[env.production]
-name = "frontend-test-prod"
-
-[env.preview]
-name = "frontend-test-preview"
+[build.upload]
+format = "modules"
+main = "./.next/server/index.js"
